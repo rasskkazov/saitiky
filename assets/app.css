@@ -8,6 +8,7 @@ body {
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+    transform: scale(0.8);
 }
 
 .card {
