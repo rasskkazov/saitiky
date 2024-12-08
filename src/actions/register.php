@@ -32,3 +32,33 @@
     }
 
     $pdo = getPdo();
+
+    $query = "INSERT INTO users (name, email, avatar, password) VALUES (:name, :email, :avatar, :password)";
+    $params = [
+        'name' => $name,
+        'email' => $email,
+        'avatar' => $avatarPath,
+        'password' => password_hash($password, PASSWORD_DEFAULT)
+    ];
+    $stmnt = $pdo->prepare($query);
+    try {
+        $stmnt->execute($params);
+    } catch (PDOException $e) {
+        die($e->getMessage());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
