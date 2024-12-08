@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($image && $image['error'] === UPLOAD_ERR_OK) {
         $uploadDir = 'uploads/';
 
-        // Проверка типа изображения
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
         if (in_array($image['type'], $allowedTypes)) {
             $imageName = uniqid() . '-' . basename($image['name']);

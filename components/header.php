@@ -17,7 +17,10 @@
     </nav>
     <div class="header__user">
         <h2 class="profile-name">  <?php echo $user['name'] ?> </h2>
+
+        <a href="<?php echo "/user.php?id={$user['id']}" ?>">
         <img class="avatar" src = "<?php echo $user['avatar'] ?>"  alt="<?php echo $user['name'] ?>" >
+        </a>
 
         <form class="logout" method="post" action="/src/actions/logout.php">
             <button role="button">Выйти</button>
