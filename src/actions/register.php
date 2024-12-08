@@ -1,5 +1,6 @@
 <?php
     include_once __DIR__ . '/../helpers.php';
+    checkGuest();
 
     $name = $_POST['name'] ?? null;
     $email = $_POST['email'] ?? null;

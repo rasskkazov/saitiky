@@ -1,6 +1,7 @@
 <?php
     include_once __DIR__."/src/helpers.php";
 
+    checkAuth();
     $user = currentUser();
 ?>
 
@@ -15,7 +16,7 @@
                 alt="<?php echo $user['name'] ?>"
             >
             <h1>Привет, <?php echo $user['name'] ?>!</h1>
-            <form  method="post">
+            <form  method="post" action="/src/actions/logout.php">
                 <button role="button">Выйти из аккаунта</button>
             </form>
         </div>

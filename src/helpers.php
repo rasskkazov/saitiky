@@ -86,3 +86,16 @@
 
         return $stmnt->fetch(\PDO::FETCH_ASSOC);
     }
+
+    function logout() {
+        unset($_SESSION['user']['id']);
+        redirect('/');
+    }
+
+    function checkAuth() {
+        if (!isset($_SESSION['user']['id'])) redirect('/');
+    }
+
+    function checkGuest() {
+        if (isset($_SESSION['user']['id'])) redirect('/home.php');
+    }
