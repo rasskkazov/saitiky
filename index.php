@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
-    <?php include_once __DIR__ . '/components/head.php'?>
+    <?php include_once __DIR__ . '/components/authHead.php'?>
     <body>
         <form class="card" action="src/actions/login.php" method="post">
             <h2>Вход</h2>
