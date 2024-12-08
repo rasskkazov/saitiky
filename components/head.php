@@ -1,6 +1,7 @@
 <head>
     <meta charset="UTF-8">
-    <title>Saitiky</title>
+    <title>Home</title>
     <link rel="stylesheet" href="assets/home.css">
+    <link rel="stylesheet" href="assets/header.css">
 </head>
 

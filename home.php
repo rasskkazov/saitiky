@@ -3,6 +3,8 @@
 
     checkAuth();
     $user = currentUser();
+
+    $users = getUsers();
 ?>
 
 <!DOCTYPE html>
@@ -10,17 +12,28 @@
     <?php include_once __DIR__ . '/components/head.php'?>
 
     <body class="home">
-        <div class="header">
-            <h2 class="profile-name">  <?php echo $user['name'] ?> </h2>
-            <img class="avatar" src = "<?php echo $user['avatar'] ?>"  alt="<?php echo $user['name'] ?>" >
+        <?php include_once __DIR__ . '/components/header.php'?>
 
-            <form class="logout" method="post" action="/src/actions/logout.php">
-                <button role="button">Выйти</button>
-            </form>
-        </div>
+        <article>
+            <table>
+                <?php foreach ($users as $user): ?>
+                    <tr>
+                        <td> <a href="<?php echo "/user/{$user['id']}" ?>">
+                            <?php echo $user['id']; ?>
+                        </a> </td>
+                        <td> <a href="<?php echo "/user/{$user['id']}" ?>">
+                            <img class="avatar" src="<?php echo $user['avatar']; ?>" alt="ava">
+                        </td>
+                        <td> <a href="<?php echo "/user/{$user['id']}" ?>">
+                            <?php echo $user['name']; ?>
+                        </a> </td>
+                        <td> <a href="<?php echo "/user/{$user['id']}" ?>">
+                            <?php echo $user['email']; ?>
+                        </a> </td>
+                    </tr>
 
-        <div class="card home">
-
-        </div>
+                <?php endforeach; ?>
+            </table>
+        </article>
     </body>
 </html>

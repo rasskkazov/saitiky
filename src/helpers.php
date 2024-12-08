@@ -99,3 +99,14 @@
     function checkGuest() {
         if (isset($_SESSION['user']['id'])) redirect('/home.php');
     }
+
+    function getUsers() {
+        $pdo = getPdo();
+
+        $query = "SELECT * FROM users";
+        $stmnt = $pdo->prepare($query);
+        $stmnt->execute();
+        $users = $stmnt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $users;
+    }
