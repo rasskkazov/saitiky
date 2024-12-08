@@ -46,6 +46,7 @@
         $stmnt->execute($params);
     } catch (PDOException $e) {
         die($e->getMessage());
+        redirect('/register.php');
     }
 
     redirect('/');

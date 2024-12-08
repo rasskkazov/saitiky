@@ -110,3 +110,11 @@
 
         return $users;
     }
+
+    function getUserById($userId) {
+        $pdo = getPdo();
+        $query = "SELECT * FROM users WHERE id = :id";
+        $stmnt = $pdo->prepare($query);
+        $stmnt->execute([':id' => $userId]);
+        return $stmnt->fetch(\PDO::FETCH_ASSOC);
+    }

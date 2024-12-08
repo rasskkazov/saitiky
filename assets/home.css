@@ -10,3 +10,70 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+article.users {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+table.users__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.users__table th,
+table.users__table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table.users__table th {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.users__table img.avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+table.users__table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table.users__table td {
+    vertical-align: middle;
+}
+
+table.users__table td:first-child {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+    table.users__table {
+        font-size: 14px;
+    }
+
+    table.users__table td,
+    table.users__table th {
+        padding: 10px;
+    }
+}
+
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 1rem 2rem;
+}
+
