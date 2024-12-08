@@ -21,12 +21,12 @@
         return isset($_SESSION['validation'][$field]) ? true : false;
     }
 
-    function addValidationErrorToSession(string $field, string $text) {
+    function setValidationError(string $field, string $text) {
         $_SESSION['validation'][$field] = $text;
     }
 
     function uploadFile(array $file, string $prefix = '') {
-        $uploadPath = __DIR__ . '../../uploads/avatars/';
+        $uploadPath = __DIR__ . '../../uploads/';
 
         if (!is_dir($uploadPath)) mkdir($uploadPath, 0777, true);
 
@@ -69,6 +69,20 @@
 
         $stmnt = $pdo->prepare($query);
         $stmnt->execute(['email' => $email]);
+
+        return $stmnt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    function currentUser() {
+        $pdo = getPdo();
+
+        if (!isset($_SESSION['user'])) return false;
+        $userId = $_SESSION['user']['id'] ?? null;
+
+        $query = "SELECT * FROM users WHERE `id` = :id";
+
+        $stmnt = $pdo->prepare($query);
+        $stmnt->execute(['id' => $userId]);
 
         return $stmnt->fetch(\PDO::FETCH_ASSOC);
     }

@@ -10,18 +10,18 @@
     $_SESSION['validation'] = [];
     $avatarPath = '';
 
-    if (empty($name)) addValidationErrorToSession('name', 'Поле пустое');
-    if (empty($email)) addValidationErrorToSession('email', 'Поле пустое');
-    if (empty($password)) addValidationErrorToSession('password', 'Поле пустое');
-    if ($password !== $passwordConfirmation) addValidationErrorToSession('password_confirmation', 'Пароли не совпадают');
+    if (empty($name)) setValidationError('name', 'Поле пустое');
+    if (empty($email)) setValidationError('email', 'Поле пустое');
+    if (empty($password)) setValidationError('password', 'Поле пустое');
+    if ($password !== $passwordConfirmation) setValidationError('password_confirmation', 'Пароли не совпадают');
 
     if (!empty($avatar)) {
         $types = ['image/png', 'image/jpeg'];
 
         if (!in_array($_FILES['avatar']['type'], $types)){
-            addValidationErrorToSession('avatar', 'Используйте jpg или png');
+            setValidationError('avatar', 'Используйте jpg или png');
         } elseif ($_FILES['avatar']['size'] > 1000000) {
-            addValidationErrorToSession('avatar', 'Используйте объем меньше 1 МБ');
+            setValidationError('avatar', 'Используйте объем меньше 1 МБ');
         }
     }
 
