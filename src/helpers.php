@@ -47,3 +47,28 @@
             die($e->getMessage());
         }
     }
+
+    function setMessage(string $key, string $message):void {
+        $_SESSION['messages'][$key] = $message;
+    }
+
+    function getMessage(string $key):string {
+        $message = $_SESSION['messages'][$key];
+        unset($_SESSION['messages'][$key]);
+        return $message;
+    }
+
+    function hasMessageError(string $key):bool {
+        return isset($_SESSION['messages'][$key]);
+    }
+
+    function findUser(string $email) {
+        $pdo = getPdo();
+
+        $query = "SELECT * FROM users WHERE `email` = :email";
+
+        $stmnt = $pdo->prepare($query);
+        $stmnt->execute(['email' => $email]);
+
+        return $stmnt->fetch(\PDO::FETCH_ASSOC);
+    }

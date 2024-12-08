@@ -47,7 +47,7 @@
         die($e->getMessage());
     }
 
-
+    redirect('/');
 
 
 

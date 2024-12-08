@@ -1,4 +1,6 @@
-
+<?php
+    include_once __DIR__ . "/src/helpers.php";
+?>
 
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
@@ -7,14 +9,21 @@
         <form class="card" action="src/actions/login.php" method="post">
             <h2>Вход</h2>
 
+            <?php if (hasMessageError('error')): ?>
+                <div class="notice error"><?php echo getMessage('error')?></div>
+            <?php endif; ?>
+
             <label for="email">
-                Имя
+                Email
                 <input
                     type="text"
                     id="email"
                     name="email"
-                    placeholder="ivan@areaweb.su"
+                    <?php echo isAriaInvalidByName('email') ?>
                 >
+                <?php if (hasError('email')): ?>
+                    <small> <?php echo getErrorText('email')?> </small>
+                <?php endif; ?>
             </label>
 
             <label for="password">
@@ -23,8 +32,11 @@
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="******"
+                    <?php echo isAriaInvalidByName('password') ?>
                 >
+                <?php if (hasError('password')): ?>
+                    <small> <?php echo getErrorText('password')?> </small>
+                <?php endif; ?>
             </label>
 
             <button

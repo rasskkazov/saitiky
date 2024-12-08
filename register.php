@@ -1,6 +1,7 @@
 <?php
     include_once __DIR__ . "/src/helpers.php";
 ?>
+
 <!DOCTYPE html>
 
 <html lang="ru" data-theme="light">
