@@ -118,3 +118,29 @@
         $stmnt->execute([':id' => $userId]);
         return $stmnt->fetch(\PDO::FETCH_ASSOC);
     }
+
+    function getMessages($userId1, $userId2) {
+        $pdo = getPdo();
+        $query = "SELECT * FROM messages 
+                  WHERE (sender_id = :user1 AND receiver_id = :user2) 
+                  OR (sender_id = :user2 AND receiver_id = :user1) 
+                  ORDER BY created_at ASC";
+        $stmnt = $pdo->prepare($query);
+        $stmnt->execute([':user1' => $userId1, ':user2' => $userId2]);
+        return $stmnt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    function addMessage($senderId, $receiverId, $message, $imagePath = null) {
+        $pdo = getPdo();
+        $query = "INSERT INTO messages (sender_id, receiver_id, message, image) 
+                  VALUES (:sender_id, :receiver_id, :message, :image)";
+        $stmnt = $pdo->prepare($query);
+        $stmnt->execute([
+            ':sender_id' => $senderId,
+            ':receiver_id' => $receiverId,
+            ':message' => $message,
+            ':image' => $imagePath
+        ]);
+    }
+
+

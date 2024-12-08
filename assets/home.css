@@ -77,3 +77,56 @@ table.users__table td:first-child {
     padding: 1rem 2rem;
 }
 
+/* Контейнер для чата */
+.chat {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер для сообщений */
+.chat__messages {
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+.chat__message {
+    margin-bottom: 15px;
+}
+
+.chat__message strong {
+    font-weight: bold;
+}
+
+.chat__form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.chat__form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat__form button:hover {
+    background-color: #45a049;
+}
+
+.chat__image img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
