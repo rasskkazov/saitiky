@@ -143,4 +143,13 @@
         ]);
     }
 
+    function getCities() {
+        $pdo = getPdo();
+        $query = "SELECT * FROM cities";
+        $stmnt = $pdo->prepare($query);
+        $stmnt->execute();
+        $cities = $stmnt->fetchAll(\PDO::FETCH_ASSOC);
+        return $cities;
+    }
+
 

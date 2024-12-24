@@ -108,6 +108,7 @@ table.users__table td:first-child {
     border-radius: 5px;
     border: 1px solid #ddd;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 .chat__form button {
@@ -130,3 +131,93 @@ table.users__table td:first-child {
     margin-top: 10px;
 }
 
+
+/* Стили для блока редактирования профиля */
+.profile-edit {
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+}
+
+.profile-edit h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.profile-edit__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-edit__form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-edit__form input[type="text"],
+.profile-edit__form input[type="date"],
+.profile-edit__form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.profile-edit__form input[type="text"]:focus,
+.profile-edit__form input[type="date"]:focus,
+.profile-edit__form select:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+.profile-edit__form button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-edit__form button:hover {
+    background-color: #45a049;
+}
+
+.profile-edit__form select option {
+    color: #333;
+    background-color: #fff;
+}
+
+/* Для адаптивности */
+@media (max-width: 768px) {
+    .profile-edit {
+        padding: 15px;
+    }
+
+    .profile-edit h3 {
+        font-size: 1.25rem;
+    }
+
+    .profile-edit__form {
+        gap: 10px;
+    }
+
+    .profile-edit__form button {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
