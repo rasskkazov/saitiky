@@ -30,8 +30,22 @@
                         <td> <a href="<?php echo "/user.php?id={$user['id']}" ?>">
                             <?php echo $user['email']; ?>
                         </a> </td>
+                        <td> <a href="<?php echo "/user.php?id={$user['id']}" ?>">
+                                <?php echo $user['first_name']; ?>
+                        </a> </td>
+                        <td> <a href="<?php echo "/user.php?id={$user['id']}" ?>">
+                                <?php echo $user['last_name']; ?>
+                            </a> </td>
+                        <td> <a href="<?php echo "/user.php?id={$user['id']}" ?>">
+                                <?php echo $user['middle_name']; ?>
+                            </a> </td>
+                        <td> <a href="<?php echo "/user.php?id={$user['id']}" ?>">
+                                <?php echo $user['birth_date']; ?>
+                            </a> </td>
+                        <td> <a href="<?php echo "/user.php?id={$user['id']}" ?>">
+                                <?php echo $user['city_name']; ?>
+                            </a> </td>
                     </tr>
-
                 <?php endforeach; ?>
             </table>
         </article>

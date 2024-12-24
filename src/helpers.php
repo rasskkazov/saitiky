@@ -103,7 +103,11 @@
     function getUsers() {
         $pdo = getPdo();
 
-        $query = "SELECT * FROM users";
+        $query = "
+            SELECT users.*, cities.name AS city_name
+            FROM users
+            LEFT JOIN cities ON users.city_id = cities.id
+        ";
         $stmnt = $pdo->prepare($query);
         $stmnt->execute();
         $users = $stmnt->fetchAll(\PDO::FETCH_ASSOC);
