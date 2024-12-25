@@ -100,6 +100,10 @@
         if (isset($_SESSION['user']['id'])) redirect('/home.php');
     }
 
+    function old($key, $default = '') {
+        return htmlspecialchars($_POST[$key] ?? $default);
+    }
+
     function getUsers() {
         $pdo = getPdo();
 

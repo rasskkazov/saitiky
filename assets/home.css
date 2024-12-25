@@ -221,3 +221,26 @@ table.users__table td:first-child {
         padding: 8px 15px;
     }
 }
+
+.game {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    color: white;
+    overflow: hidden;
+}
+
+canvas {
+    border: 2px solid white;
+}
+
+.game__container {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

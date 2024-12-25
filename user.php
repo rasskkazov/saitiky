@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $formType = $_POST['form_type'] ?? '';
 
     if ($formType === 'message') {
-        // Логика отправки сообщения
         $message = $_POST['message'] ?? '';
         $image = $_FILES['image'] ?? null;
         $imagePath = null;
@@ -45,18 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: /user.php?id={$profileId}");
         exit;
     } elseif ($formType === 'edit_profile') {
-        // Логика редактирования профиля
         $firstName = $_POST['first_name'] ?? '';
         $lastName = $_POST['last_name'] ?? '';
         $middleName = $_POST['middle_name'] ?? '';
         $birthDate = $_POST['birth_date'] ?? '';
         $cityId = $_POST['city_id'] ?? null;
 
-        // Валидация данных
         if (empty($firstName) || empty($lastName) || empty($birthDate) || !$cityId) {
             echo "Все поля обязательны для заполнения.";
         } else {
-            // Обновление данных пользователя
             $pdo = getPdo();
             $query = "UPDATE users SET first_name = :first_name, last_name = :last_name, 
                       middle_name = :middle_name, birth_date = :birth_date, city_id = :city_id WHERE id = :id";

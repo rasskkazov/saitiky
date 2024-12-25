@@ -8,11 +8,12 @@
 <header class="header">
     <nav>
         <ul>
-            <li>
-                <a href="/home.php">
-                    Home
-                </a>
-            </li>
+            <li><a href="/home.php">
+                Home
+            </a></li>
+            <li><a href="/stuff.php">
+                Stuff
+            </a></li>
         </ul>
     </nav>
     <div class="header__user">
